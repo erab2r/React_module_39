@@ -13,6 +13,7 @@ function App() {
     <>
       <h1>Vite + React</h1>
       <button onClick={handleClick}>Click Me</button>
+      
       <button onClick={handleClick2}>Click Me</button>
     </>
   )
