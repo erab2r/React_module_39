@@ -1,11 +1,17 @@
- export default function Counter(){
+import { useState } from "react";
+export default function Counter(){
+    const [count, setCount] = useState(0);
+    const handleAdd = () => {
+        const newcount = count + 1;
+        setCount(newcount);
+    }
     const counterStyle = {
         border: '2px solid yellow',
     }
     return(
         <div style={counterStyle}>
-            <h3>Count : </h3>
-            <button>Add : </button>
+            <h3>Count : {count} </h3>
+            <button onClick={handleAdd}>Add : </button>
         </div>
     )
 }
