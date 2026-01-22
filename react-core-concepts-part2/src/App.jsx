@@ -3,17 +3,23 @@ import Users from './Users';
 import Friends from './Friends';
 import './App.css';
 import { Suspense } from 'react';
+import Post from './post';
 
 
 // const fetchUsers = fetch('https://jsonplaceholder.typicode.com/users')
 //   .then(res => res.json());
 
-const fetchFriends = async() =>{
-  const res = await fetch('https://jsonplaceholder.typicode.com/users')
+// const fetchFriends = async() =>{
+//   const res = await fetch('https://jsonplaceholder.typicode.com/users')
+//   return res.json();
+// }
+const fetchPost = async() =>{
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts')
   return res.json();
 }
 function App() {
-  const fetchPromise = fetchFriends();
+  // const fetchPromise = fetchFriends();
+  const fetchPosts = fetchPost();
   function handleClick() {
     alert('Habibi!')
   }
@@ -28,9 +34,12 @@ function App() {
       {/* <Suspense fallback={<h2>Loading Users...</h2>}>
         <Users fetchUsers={fetchUsers} />
       </Suspense> */}
-
+{/* 
       <Suspense fallback={<h2>Loading Friends...</h2>}>
         <Friends fetchPromise = {fetchPromise}></Friends>
+      </Suspense> */}
+      <Suspense fallback={<h2>Loading Post...</h2>}>
+        <Post fetchPosts = {fetchPosts}></Post>
       </Suspense>
 
       <Counter></Counter>
